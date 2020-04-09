@@ -35,7 +35,7 @@ WORKDIR /home/omnibus/omnibus-project
 ONBUILD RUN bash -c 'source /home/omnibus/load-omnibus-toolchain.sh ; gem install bundler -N'
 ONBUILD RUN bash -c 'source /home/omnibus/load-omnibus-toolchain.sh ; bundle config set without "development test"'
 ONBUILD RUN bash -c 'source /home/omnibus/load-omnibus-toolchain.sh ; bundle install'
-ONBUILD RUN bash -c 'source /home/omnibus/load-omnibus-toolchain.sh ; bundle binstubs --all'
+ONBUILD RUN bash -c 'source /home/omnibus/load-omnibus-toolchain.sh ; bundle binstubs --all --path bundle_bin'
 ONBUILD RUN echo "Usage: docker run  -it -e OMNIBUS_PROJECT=${PROJECT_NAME} -v pkg:/home/omnibus/omnibus-project/pkg builder-ubuntu1804"
 
 CMD ["/home/omnibus/build.sh"]
