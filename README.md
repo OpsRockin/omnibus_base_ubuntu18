@@ -5,7 +5,7 @@ https://hub.docker.com/r/opsrock/omnibus_base_ubuntu18/
 ## Omnibus by Docker Bros.
 
 - https://github.com/OpsRockin/omnibus_base_ubuntu18
-- https://github.com/OpsRockin/omnibus_base_centos6
+- https://github.com/OpsRockin/omnibus_base_centos8
 
 ### Auto build policies
 
@@ -27,10 +27,10 @@ FROM opsrock/omnibus_base_ubuntu18
 MAINTAINER you
 ```
 
-for `*.rpm`, `Dockerfile.centos6`.
+for `*.rpm`, `Dockerfile.centos8`.
 
 ```
-FROM opsrock/omnibus_base_centos6
+FROM opsrock/omnibus_base_centos8
 MAINTAINER you
 ```
 
@@ -41,7 +41,7 @@ MAINTAINER you
 $ docker build -t omnibus_myproject-ubuntu1804 -f Dockerfile.ubuntu1804 .
 
 ## RPM
-$ docker build -t omnibus_myproject-centos6 -f Dockerfile.centos6 .
+$ docker build -t omnibus_myproject-centos8 -f Dockerfile.centos8 .
 ```
 
 ## Run to create package!
@@ -53,7 +53,7 @@ Run with passing your project name via env `OMNIBUS_PROJECT`.
 $ docker run -e OMNIBUS_PROJECT=serverspec -v pkg:/home/omnibus/omnibus-project/pkg omnibus_myproject-ubuntu1804
 
 ## RPM
-$ docker run -e OMNIBUS_PROJECT=serverspec -v pkg:/home/omnibus/omnibus-project/pkg omnibus_myproject-centos6
+$ docker run -e OMNIBUS_PROJECT=serverspec -v pkg:/home/omnibus/omnibus-project/pkg omnibus_myproject-centos8
 ```
 
 Packages will be created in `./pkg/` directory.
