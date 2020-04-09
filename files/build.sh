@@ -3,7 +3,9 @@
 set -ex
 source /home/omnibus/load-omnibus-toolchain.sh
 cd /home/omnibus/omnibus-project
-bundle install --binstubs bundle_bin --without development test
+bundle config set without "development test"
+bundle install
+bundle binstubs --all --path bundle_bin
 
 if ! [ "$BUILD_CACHE_PATH" == "" ] ; then
   if [ -d ${BUILD_CACHE_PATH} ] ; then
