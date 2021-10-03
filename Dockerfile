@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 MAINTAINER sawanoboriyu@higanworks.com
 
 RUN apt-get -y update && \
-    apt-get -y install curl iproute2
+    apt-get -y install curl iproute2 ca-certificate
 
 ## Prepare for Chef
 RUN mkdir /root/chefrepo
